@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import pymysql
 import traceback
 import re
+# ×½Ñý¼Ç
 
 
 def getHTMlText(url,code='utf-8'):
@@ -36,7 +37,7 @@ def soupText(html,mlist):
     for m in range(len(list1)):
         mlist.append([list1[m][0],list1[m][1],list2[m]])
 
-
+mysql
 def mysqlText(mlist):
     # count=0
     conn = pymysql.connect(host='127.0.0.1', user='root', password='Lj18119929389', db='douban', charset="utf8")
