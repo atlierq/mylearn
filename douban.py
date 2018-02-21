@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import pymysql
 import traceback
 import re
-# ×½Ñý¼Ç
+# Ã—Â½Ã‘Ã½Â¼Ã‡
 
 
 def getHTMlText(url,code='utf-8'):
@@ -40,7 +40,7 @@ def soupText(html,mlist):
 mysql
 def mysqlText(mlist):
     # count=0
-    conn = pymysql.connect(host='127.0.0.1', user='root', password='Lj18119929389', db='douban', charset="utf8")
+    conn = pymysql.connect(host='127.0.0.1', user='root', password='***', db='douban', charset="utf8")
     cur = conn.cursor()
     sqlc = '''create table movie(
                 id int(11) not null auto_increment primary key,
