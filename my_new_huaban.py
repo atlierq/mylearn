@@ -66,7 +66,7 @@ def extract_board(url):
 def main():
     url='http://huaban.com/boards/13840182/'
     board=extract_board(url)
-    # for x in board.pins:
-    #     print(x.url)
+    for x in board.pins:
+        print(x.url)
 
 main()
