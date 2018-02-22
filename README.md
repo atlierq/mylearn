@@ -1,6 +1,6 @@
 # mylearn
-#1.mstock.py£ºmooc½Ì³Ì
-#2.douban.py£º¶¹°êÆÀÂÛ
-#3.stcn.py:steamcnÂÛÌ³ÈÈµã
-#4.m_common:emmm
-#5£»m_new_huaban:»¨°ê»­°åÈ«²¿Í¼Æ¬ÅÀÈ¡
+1.mstock.pyï¼šmoocæ•™ç¨‹
+2.douban.pyï¼šè±†ç“£è¯„è®º
+3.stcn.py:steamcnè®ºå›çƒ­ç‚¹
+4.m_common:emmm
+5ï¼›m_new_huaban:èŠ±ç“£ç”»æ¿å…¨éƒ¨å›¾ç‰‡çˆ¬å–
