@@ -5,6 +5,7 @@ from m_common import *
 import urllib.parse as urlparse
 import urllib.request
 import os
+import shutil
 
 LIMIT=100
 
@@ -32,7 +33,12 @@ def construct_url(url,**params):
 
 
 def getHTML(url,code='utf-8'):
-    r=requests.get(url,fake_headers)
+    r=requests.get(url,fake_headers,timeout=10)
+    if r.status_code==200:
+        pass
+    else:
+        print('可能发生了错误')
+    # print(url)
     r.raise_for_status()
     r.encoding=code
     return r.text
@@ -52,7 +58,7 @@ def extract_board(url):
         title=json_data['title']
         pin_list=json_data['pins']
         pin_count=json_data['pin_count']
-        print(pin_count)
+        print('共有{}张图'.format(pin_count))
         pin_count-=len(pin_list)
         while pin_count >0:
             json_data=getjson_data(url,limit=LIMIT,max=pin_list[-1]['pin_id'])
@@ -60,6 +66,7 @@ def extract_board(url):
             pin_list +=pins
             pin_count-=len(pins)
         some_thing=list(map(Pin, pin_list))
+        # print(len(pin_list))
         return Board(title,some_thing )
     except:
         print('something happended')
@@ -67,13 +74,27 @@ def extract_board(url):
 def huaban_board_download(url,s_path):
     urllib.request.urlretrieve(url,s_path)
 
+def huaban_mkdir(path):
+    isexist=os.path.exists(path)
+    if not isexist:
+        os.makedirs(path)
+        print(path+'success')
+    else:
+        shutil.rmtree(path)
+        os.makedirs(path)
+        print('success to establish')
+
 
 
 def main():
-    url='http://huaban.com/boards/41233035/'
+
+    url='http://huaban.com/boards/32666136/'
     board=extract_board(url)
+    # path = ''d:\\image\\%s' % board.title'
+    path='d:\\image\\{}'.format(board.title)
     print(board.title)
-    os.mkdir('d:\\image\\%s'%board.title)
+    huaban_mkdir(path)
+    # os.mkdir('d:\\image\\%s'%board.title)
     # path='D:\image\\' + board.title+'\\'+x.id
     # print(path)
     for x in board.pins:
