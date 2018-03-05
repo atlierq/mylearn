@@ -78,17 +78,17 @@ def huaban_mkdir(path):
     isexist=os.path.exists(path)
     if not isexist:
         os.makedirs(path)
-        print(path+'success')
+        print('创建成功')
     else:
         shutil.rmtree(path)
         os.makedirs(path)
-        print('success to establish')
+        print('创建成功')
 
 
 
 def main():
 
-    url='http://huaban.com/boards/32666136/'
+    url='http://huaban.com/boards/16342315/'
     board=extract_board(url)
     # path = ''d:\\image\\%s' % board.title'
     path='d:\\image\\{}'.format(board.title)
@@ -97,10 +97,13 @@ def main():
     # os.mkdir('d:\\image\\%s'%board.title)
     # path='D:\image\\' + board.title+'\\'+x.id
     # print(path)
+    count=0
     for x in board.pins:
+        count+=1
         # path = 'D:\\image\\' + board.title + '\\'+x.id+'.'+x.ext
-        path='d:\\image\\%s\\%s.%s'%(board.title,x.id,x.ext)
-        huaban_board_download(x.url,path)
+        pin_path='d:\\image\\%s\\%s.%s'%(board.title,x.id,x.ext)
+        huaban_board_download(x.url,pin_path)
+        print('\r当前进度：{:.3f}%'.format(count*100/len(board.pins)),end='')
         # print(path)
         # print(x.url,x.id)
         # D:\image
