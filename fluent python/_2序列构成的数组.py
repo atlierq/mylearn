@@ -143,7 +143,7 @@ for x in reversed(NEEDLES):
 # print("\n-------------------------\n")
 
 #2.9 当列表不是首选时
-print()
+print('sdfsf')
 
 
 
