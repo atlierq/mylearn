@@ -137,6 +137,12 @@ for i in range(size):
     new_item=random.randrange(size*2)
     bisect.insort(my_list,new_item)
     print('%2d->'%new_item,my_list)
+print("\n-------------------------\n")
+
+#2.9 当列表不是首选时
+
+
+
 
 
 
