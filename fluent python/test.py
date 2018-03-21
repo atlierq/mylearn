@@ -1,19 +1,20 @@
-import bisect
-import sys
-HAYSTACK = [1, 4, 5, 6, 8, 12, 15, 20, 21, 23, 23, 26, 29, 30]
-NEEDLES = [0, 1, 2, 5, 8, 10, 22, 23, 29, 30, 31]
-ROW_FMT = '{0:2d} @ {1:2d} {2}{0:<2d}'
-def demo(bisect_fn):
-    for needle in reversed(NEEDLES):
-        position = bisect_fn(HAYSTACK, needle)
-        offset = position * ' |'
-        print(ROW_FMT.format(needle, position, offset))
+import array
+from array import array
+from random import random
 
-if __name__ == '__main__':
-    if sys.argv[-1] == 'left':
-        bisect_fn = bisect.bisect_left
-    else:
-        bisect_fn = bisect.bisect
-        print('DEMO:', bisect_fn.__name__)
-        print('haystack ->', ' '.join('%2d' % n for n in HAYSTACK))
-        demo(bisect_fn)
+
+floats= array('d',(random() for x in range(100)))
+# print(floats[-1])
+# fp=open('floats.txt','wb')
+# floats.tofile(fp)
+# fp.close()
+# floats2=array('d')
+# fp=open('floats.txt','rb')
+# floats2.fromfile(fp,10**7)
+# fp.close()
+# print(floats2[-1])
+print(floats)
+print(floats.tolist())
+print(floats.typecode)
+a=array('d',sorted(floats))
+print(a)
