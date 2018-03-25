@@ -1,20 +1,23 @@
-import array
-from array import array
-from random import random
-
-
-floats= array('d',(random() for x in range(100)))
-# print(floats[-1])
-# fp=open('floats.txt','wb')
-# floats.tofile(fp)
-# fp.close()
-# floats2=array('d')
-# fp=open('floats.txt','rb')
-# floats2.fromfile(fp,10**7)
-# fp.close()
-# print(floats2[-1])
-print(floats)
-print(floats.tolist())
-print(floats.typecode)
-a=array('d',sorted(floats))
-print(a)
+import sys
+import re
+WORD_RE = re.compile(r'\w+')
+index = {}
+with open('a.txt', encoding='utf-8') as fp:
+    for line_no, line in enumerate(fp, 1):
+        for match in WORD_RE.finditer(line):
+            # print(match.span())
+            # print(match.start())
+            word = match.group()
+            # print(word)
+            column_no = match.start()+1
+            location = (line_no, column_no)
+# # 这其实是一种很不好的实现，这样写只是为了证明论点
+            occurrences = index.get(word, [])
+            # print(occurrences)
+            occurrences.append(location)
+            # print(occurrences)
+            index[word] = occurrences
+            print(index)
+# 以字母顺序打印出结果
+# for word in sorted(index, key=str.upper):
+#     print(word, index[word])
