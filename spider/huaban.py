@@ -33,7 +33,7 @@ def construct_url(url,**params):
 
 
 def getHTML(url,code='utf-8'):
-    r=requests.get(url,fake_headers,timeout=10)
+    r=requests.get(url,headers=fake_headers,timeout=10)
     if r.status_code==200:
         pass
     else:
