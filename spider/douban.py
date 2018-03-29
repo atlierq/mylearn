@@ -37,10 +37,10 @@ def soupText(html,mlist):
     for m in range(len(list1)):
         mlist.append([list1[m][0],list1[m][1],list2[m]])
 
-mysql
+
 def mysqlText(mlist):
     # count=0
-    conn = pymysql.connect(host='127.0.0.1', user='root', password='***', db='douban', charset="utf8")
+    conn = pymysql.connect(host='127.0.0.1', user='root', password='123456', db='douban', charset="utf8")
     cur = conn.cursor()
     sqlc = '''create table movie(
                 id int(11) not null auto_increment primary key,
