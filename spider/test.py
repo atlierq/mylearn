@@ -1,8 +1,25 @@
+import pymysql
 import requests
+from lxml import etree
+from m_common import *
 from bs4 import BeautifulSoup
-url='https://cn.bing.com/search?q=%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%94%9F%E9%99%A2'
-r=requests.get(url)
-html=r.text
-soup=BeautifulSoup(html,'html.parser')
-a=soup.findAll('li',attrs={'class':'b_algo'})[0].a.attrs['href']
-print(a)
+import re
+
+
+def getFROMsql():
+    conn = pymysql.connect(host='127.0.0.1', user='root', password='123456', db='school', charset="utf8")
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM school.school;')
+    results = cursor.fetchall()
+
+    result = list(results)
+    print(result)
+
+    return result
+
+def main():
+    getFROMsql()
+
+
+
+main()

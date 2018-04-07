@@ -38,6 +38,7 @@ def getbaidu(lis3,html1,fpath):
             name=stockinfo.find_all(attrs={'class':'bets-name'})[0]
 
             lis1.update({'名称':name.text.split()[0]})
+            print(lis1)
 
             keylist=stockinfo.find_all('dt')
             vallist=stockinfo.find_all('dd')

@@ -27,7 +27,7 @@ def getSchoolurl(list):
     url='https://cn.bing.com/search?q='
     school_url_list={}
     for x in list:
-        url1=url+x+'研究生招生网'
+        url1=url+x+'研究生招生信息网'
         try:
             Stext=getHtmlText(url1,code='utf-8')
             Ssoup=BeautifulSoup(Stext,'html.parser')
