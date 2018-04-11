@@ -29,7 +29,7 @@ def gethtml(url,code='utf-8'):
 def getsoup(text,origin_url,dict,school,none_list):
     soup=BeautifulSoup(text,'html.parser')
 
-    a=soup.findAll(text=re.compile('硕士招生'))
+    a=soup.findAll(text=re.compile('硕士招生|招生信息|学历硕士|统考硕士'))
 
     list=[]
     for x in a:
@@ -37,6 +37,7 @@ def getsoup(text,origin_url,dict,school,none_list):
             new_url=x.parent.attrs['href']
         except:
             continue
+
         if new_url[:4]!='http':
             new_url = origin_url.rstrip('/') + '/' + new_url.lstrip('/')
             list.append(new_url)
@@ -48,11 +49,26 @@ def getsoup(text,origin_url,dict,school,none_list):
     dict[school[1]]=list
 
 
-
-
-
-
-
+def handlenone(none_list,dict):
+    test_dict={}
+    for school in none_list:
+        text=gethtml(none_list[school])
+        soup=BeautifulSoup(text,'html.parser')
+        a=soup.findAll(text=re.compile('学历硕士|硕士研究生|研究生招生|硕士生招生'))
+        list = []
+        for x in a:
+            try:
+                new_url = x.parent.attrs['href']
+            except:
+                continue
+            if new_url[:4] != 'http':
+                new_url = none_list[school].rstrip('/') + '/' + new_url.lstrip('/')
+                list.append(new_url)
+            else:
+                list.append(new_url)
+        test_dict.update({school:list})
+        dict[school] = list
+    print('test_dict={}'.format(test_dict))
 
 def main():
     s_list=[]
@@ -68,8 +84,11 @@ def main():
         except:
             print(x)
             continue
-    print(m_dict)
+    # print(m_dict)
     print(none_list)
+    handlenone(none_list,m_dict)
+    print(m_dict)
+
 
 
 
