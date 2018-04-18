@@ -1,9 +1,23 @@
-test_dict={'北京航空航天大学': ['http://yzb.buaa.edu.cn/master/', 'http://yzb.buaa.edu.cn/home/newdetail/post/148/', 'http://yzb.buaa.edu.cn/fileadmin/doc/%E5%8C%97%E8%88%AA%E4%BA%91%E5%8D%97%E5%88%9B%E6%96%B0%E7%A0%94%E7%A9%B6%E9%99%A2%E7%A0%94%E7%A9%B6%E7%94%9F%E5%9F%B9%E5%85%BB%E5%9F%BA%E5%9C%B02018%E5%B9%B4%E7%A0%94%E7%A9%B6%E7%94%9F%E6%8B%9B%E7%94%9F%E8%AF%B4%E6%98%8E_2_.pdf', 'http://yzb.buaa.edu.cn/master/fszgcx/', 'http://yzb.buaa.edu.cn/home/newdetail/post/397/', 'http://yzb.buaa.edu.cn/home/newdetail/post/388/'], '北京理工大学': ['http://grd.bit.edu.cn/zsgz/ssyjs/index.htm', 'http://grd.bit.edu.cn/tzgg1/119593.htm', 'http://grd.bit.edu.cn/tzgg1/119592.htm', 'http://yz.chsi.com.cn/', 'http://yz.chsi.com.cn/'], '北京师范大学': ['http://yz.bnu.edu.cn/'], '中央民族大学': [], '天津大学': [], '大连理工大学': [], '东北大学': ['http://www.graduate.neu.edu.cn/dongda/tzgg1/36822.jhtml'], '吉林大学': ['http://zsb.jlu.edu.cn/list/1.html', 'http://zsb.jlu.edu.cn/cont/1428.html', 'http://zsb.jlu.edu.cn/cont/1432.html', 'http://zsb.jlu.edu.cn/cont/1436.html', 'http://zsb.jlu.edu.cn/cont/1437.html', 'http://zsb.jlu.edu.cn/cont/1443.html', 'http://zsb.jlu.edu.cn/cont/1446.html', 'http://yz.chsi.com.cn/'], '复旦大学': ['http://www.gs.fudan.edu.cn/1c/50/c2892a138320/page.htm', 'http://www.gs.fudan.edu.cn/1a/7b/c2892a137851/page.htm'], '同济大学': ['http://yjszs.tongji.edu.cn/', 'http://yz.chsi.com.cn/', 'http://zs.tongji.edu.cn/login.jsp', 'http://yz.tongji.edu.cn/html/zsxw/sszs/2018/03/12/90d58a35-6b19-4929-add9-587ebe99ae8b.html', 'http://yz.tongji.edu.cn/html/zsxw/zyxwzs/2017/09/22/c5650902-0581-4edc-8f62-ffede10f0f62.html', 'http://yz.tongji.edu.cn/html/zsxw/zylmgxzs/2012/09/29/913ea7e3-6e02-4a21-8502-21d214716c1c.html'], '华东师范大学': [], '南京大学': ['https://grawww.nju.edu.cn/ca/34/c905a248372/page.htm']}
-for x in test_dict:
-    print(test_dict[x])
+def fab(n):
+    n1 = 1
+    n2 = 1
+    n3 = 1
+
+    if n < 1:
+        print('cuowu')
+    else:
+        while(n-2) > 0:
+            print(n3)
+            n3 = n2+n1
+            n1 = n2
+            n2 = n3
+            n -= 1
 
 
-print('-------------------------------')
-dict={'北京师范大学': 'http://graduate.bnu.edu.cn/', '中央民族大学': 'http://grs.muc.edu.cn/', '天津大学': 'http://yzb.tju.edu.cn/', '大连理工大学': 'http://gs.dlut.edu.cn/', '东北大学': 'http://www.graduate.neu.edu.cn/', '复旦大学': 'http://www.gs.fudan.edu.cn/', '华东师范大学': 'http://yjszs.ecnu.edu.cn/', '南京大学': 'https://grawww.nju.edu.cn/'}
-for x in dict:
-    print(dict[x])
+
+
+def main():
+    fab(10)
+
+
+main()
